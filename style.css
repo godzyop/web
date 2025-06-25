@@ -1,0 +1,167 @@
+:root {
+    --neon-blue: #00f7ff;
+    --neon-pink: #ff00f7;
+    --neon-purple: #9d00ff;
+    --dark-space: #0a0a15;
+    --starlight: rgba(255, 255, 255, 0.85);
+    --matrix-green: #00ff4c;
+}
+
+/* === Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.webp') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: var(--starlight);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    perspective: 1000px;
+}
+
+/* === Navigation === */
+.cyber-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5vw;
+    position: fixed;
+    width: 100%;
+    top: 80px;
+    z-index: 1000;
+    background: rgba(10, 10, 25, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.1);
+}
+
+.holographic-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+.cyber-links a {
+    color: var(--starlight);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0 1rem;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.cyber-links a.active, .cyber-links a:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.cart-btn {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* === Page Sections === */
+.featured-section, .contact-section, .about-section {
+    padding: 180px 5vw 5rem;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* === Product Cards === */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.cyber-card {
+    background: rgba(20, 20, 40, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 247, 255, 0.1);
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.product-image-container {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.product-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--starlight);
+}
+
+.product-price {
+    color: var(--neon-blue);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* === Deals Page Specific === */
+.deal-card {
+    position: relative;
+}
+
+.deal-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--neon-pink);
+    color: var(--dark-space);
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.original-price {
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-right: 0.5rem;
+}
+
+.deal-timer {
+    margin-top: 1rem;
+    color: var(--matrix-green);
+}
+
+/* === Footer === */
+.cyber-footer {
+    padding: 3rem 5vw;
+    background: #050510;
+    text-align: center;
+}
