@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - NEOVERSE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Add this banner at the top of your page -->
+    <div class="disclaimer-banner" style="
+        background: linear-gradient(90deg, #ff0000, #ff6a00);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        box-shadow: 0 0 20px rgba(255,0,0,0.5);
+    ">
+        ⚠️ FICTIONAL DEMO SITE - NOT A REAL STORE ⚠️<br>This is for showing my skills.
+    </div>
+
+    <!-- Cyberpunk Navigation -->
+    <nav class="cyber-nav">
+        <div class="holographic-logo">NEOVERSE</div>
+        <div class="cyber-links">
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="deals.html">Deals</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            Cart <span class="cart-count">0</span>
+        </button>
+    </nav>
+
+    <!-- All Products Section -->
+    <section class="featured-section all-products">
+        <div class="section-header">
+            <h2 class="section-title">All Products</h2>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="headset.webp" alt="Gaming Headset" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">AUDIO</span>
+                    <h3 class="product-name">Quantum X Headset</h3>
+                    <p class="product-description">Immerse yourself in 3D spatial audio with our latest neural interface technology.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$249.99</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="keyboard.webp" alt="Mechanical Keyboard" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">PERIPHERALS</span>
+                    <h3 class="product-name">Neon Glow Keyboard</h3>
+                    <p class="product-description">Customizable RGB mechanical keyboard with holographic keycaps.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$179.99</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="mouse.webp" alt="Gaming Mouse" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">PERIPHERALS</span>
+                    <h3 class="product-name">Holo Projection Mouse</h3>
+                    <p class="product-description">The world's first laser-projected mouse with zero physical contact.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$129.99</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="smartwatch.webp" alt="Smart Watch" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">WEARABLES</span>
+                    <h3 class="product-name">Neuralink Smart Watch</h3>
+                    <p class="product-description">Monitor your vitals, control devices with your mind, and more.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$349.99</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more products as needed -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-grid">
+             <div class="footer-column">
+                <h3>NEOVERSE</h3>
+                <p>Bringing tomorrow's technology to today's innovators.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Move the styles to a separate style.css file to keep the HTML clean
+        // This script is for the add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-check"></i> Added';
+                this.style.background = 'var(--matrix-green)';
+                const cartCount = document.querySelector('.cart-count');
+                let count = parseInt(cartCount.textContent);
+                cartCount.textContent = count + 1;
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-plus"></i> Add to Cart';
+                    this.style.background = 'transparent';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html> 
