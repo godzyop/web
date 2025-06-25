@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NEOVERSE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --neon-blue: #00f7ff;
+            --neon-pink: #ff00f7;
+            --neon-purple: #9d00ff;
+            --dark-space: #0a0a15;
+            --starlight: rgba(255, 255, 255, 0.85);
+            --matrix-green: #00ff4c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.webp') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: var(--starlight);
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        .cyber-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5vw;
+            position: fixed;
+            width: 100%;
+            top: 80px;
+            z-index: 1000;
+            background: rgba(10, 10, 25, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.1);
+        }
+        
+        .holographic-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .holographic-logo::after {
+            content: 'BETA';
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            font-size: 0.6rem;
+            color: var(--matrix-green);
+            text-shadow: 0 0 5px var(--matrix-green);
+        }
+        
+        .cyber-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .cyber-links a {
+            color: var(--starlight);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .cyber-links a::before {
+            content: '[';
+            position: absolute;
+            left: -10px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--neon-blue);
+        }
+        
+        .cyber-links a::after {
+            content: ']';
+            position: absolute;
+            right: -10px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--neon-blue);
+        }
+        
+        .cyber-links a:hover, .cyber-links a.active {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .cyber-links a:hover::before, .cyber-links a.active::before,
+        .cyber-links a:hover::after, .cyber-links a.active::after {
+            opacity: 1;
+        }
+        
+        .cart-btn {
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+        }
+        
+        .cart-btn:hover {
+            background: var(--neon-blue);
+            color: var(--dark-space);
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: translateY(-2px);
+        }
+        
+        .cart-count {
+            background: var(--neon-pink);
+            color: var(--dark-space);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .contact-section {
+            padding: 180px 5vw 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 4rem;
+        }
+        
+        .contact-info, .contact-form-container {
+            background: rgba(20, 20, 40, 0.6);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-item i {
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: var(--dark-space);
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: translateY(-3px);
+        }
+
+        .cyber-footer {
+            background: linear-gradient(180deg, rgba(10, 10, 30, 0.8) 0%, #050510 100%);
+            padding: 3rem 5vw;
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--neon-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--starlight);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        @media (max-width: 992px) {
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add this banner at the top of your page -->
+    <div class="disclaimer-banner" style="
+        background: linear-gradient(90deg, #ff0000, #ff6a00);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        box-shadow: 0 0 20px rgba(255,0,0,0.5);
+    ">
+        ⚠️ FICTIONAL DEMO SITE - NOT A REAL STORE ⚠️<br>This is for showing my skills.
+    </div>
+
+    <!-- Cyberpunk Navigation -->
+    <nav class="cyber-nav">
+        <div class="holographic-logo">NEOVERSE</div>
+        <div class="cyber-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="deals.html">Deals</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <button class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            Cart <span class="cart-count">0</span>
+        </button>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-info">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="margin-bottom: 2rem;">Have a question or a project in mind? Use the form or contact me directly through Discord or Gmail.</p>
+            <div class="info-item">
+                <i class="fab fa-discord"></i>
+                <span>godzyyy_99</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>tanayshaha2013@gmail.com</span>
+            </div>
+        </div>
+        <div class="contact-form-container">
+            <h2 class="section-title">Send a Message</h2>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>NEOVERSE</h3>
+                <p>Bringing tomorrow's technology to today's innovators.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
