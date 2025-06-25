@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOVERSE | Futuristic Tech Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f7ff;
+            --neon-pink: #ff00f7;
+            --neon-purple: #9d00ff;
+            --dark-space: #0a0a15;
+            --starlight: rgba(255, 255, 255, 0.85);
+            --matrix-green: #00ff4c;
+        }
+        
+        /* === Cosmic Reset === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.webp') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: var(--starlight);
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        /* === Cyberpunk Navbar === */
+        .cyber-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5vw;
+            position: fixed;
+            width: 100%;
+            top: 80px;
+            z-index: 1000;
+            background: rgba(10, 10, 25, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.1);
+        }
+        
+        .holographic-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .holographic-logo::after {
+            content: 'BETA';
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            font-size: 0.6rem;
+            color: var(--matrix-green);
+            text-shadow: 0 0 5px var(--matrix-green);
+        }
+        
+        .cyber-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .cyber-links a {
+            color: var(--starlight);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .cyber-links a::before {
+            content: '[';
+            position: absolute;
+            left: -10px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--neon-blue);
+        }
+        
+        .cyber-links a::after {
+            content: ']';
+            position: absolute;
+            right: -10px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--neon-blue);
+        }
+        
+        .cyber-links a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .cyber-links a:hover::before,
+        .cyber-links a:hover::after {
+            opacity: 1;
+        }
+        
+        .cart-btn {
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+        }
+        
+        .cart-btn:hover {
+            background: var(--neon-blue);
+            color: var(--dark-space);
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: translateY(-2px);
+        }
+        
+        .cart-count {
+            background: var(--neon-pink);
+            color: var(--dark-space);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        /* === Hero Section with 3D Effect === */
+        .cyber-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5vw;
+            position: relative;
+            overflow: hidden;
+            margin-top: 160px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .typewriter-container {
+            min-height: 120px;
+            margin-bottom: 2rem;
+        }
+        
+        .typewriter-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+            border-right: 3px solid var(--neon-blue);
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 500px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .primary-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: var(--dark-space);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .primary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px var(--neon-blue);
+        }
+        
+        .primary-btn:hover::before {
+            left: 100%;
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 1rem 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+        }
+        
+        .secondary-btn:hover {
+            background: rgba(0, 247, 255, 0.1);
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 5vw;
+            width: 50%;
+            max-width: 700px;
+            filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3));
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        /* === Featured Products === */
+        .featured-section {
+            padding: 5rem 5vw;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), transparent);
+            border-radius: 3px;
+        }
+        
+        .view-all {
+            color: var(--neon-blue);
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .view-all:hover {
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .view-all i {
+            transition: transform 0.3s;
+        }
+        
+        .view-all:hover i {
+            transform: translateX(5px);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .cyber-card {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 15px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        
+        .cyber-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+        }
+        
+        .cyber-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-image-container {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            max-width: 80%;
+            max-height: 80%;
+            transition: all 0.5s;
+            z-index: 2;
+        }
+        
+        .cyber-card:hover .product-image {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .product-bg {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 247, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        
+        .cyber-card:hover .product-bg {
+            opacity: 1;
+            transform: rotate(180deg);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .product-category {
+            color: var(--neon-pink);
+            font-size: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .cyber-card:hover .product-name {
+            color: var(--neon-blue);
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+        
+        .add-to-cart {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .add-to-cart:hover {
+            background: var(--neon-blue);
+            color: var(--dark-space);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        
+        /* === AI Recommendations Section === */
+        .ai-section {
+            padding: 5rem 5vw;
+            background: linear-gradient(135deg, rgba(10, 10, 30, 0.8) 0%, rgba(5, 5, 20, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="1" height="1" x="50" y="50" fill="%2300f7ff" opacity="0.1"/></svg>');
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--dark-space);
+        }
+        
+        .ai-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .ai-subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        .ai-recommendations {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .ai-recommendations::-webkit-scrollbar {
+            height: 5px;
+        }
+        
+        .ai-recommendations::-webkit-scrollbar-track {
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .ai-recommendations::-webkit-scrollbar-thumb {
+            background: var(--neon-blue);
+            border-radius: 10px;
+        }
+        
+        .ai-card {
+            min-width: 250px;
+            scroll-snap-align: start;
+            background: rgba(30, 30, 60, 0.5);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-card:hover {
+            background: rgba(40, 40, 80, 0.7);
+            border-color: var(--neon-blue);
+            transform: translateY(-5px);
+        }
+        
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .ai-card:hover::before {
+            opacity: 1;
+        }
+        
+        .ai-product-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ai-reason {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .ai-match {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .match-bar {
+            flex-grow: 1;
+            height: 3px;
+            background: rgba(0, 247, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .match-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 3px;
+        }
+        
+        .ai-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+        
+        /* === Newsletter Section === */
+        .newsletter-section {
+            padding: 5rem 5vw;
+            background: linear-gradient(135deg, rgba(157, 0, 255, 0.1) 0%, rgba(0, 247, 255, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .newsletter-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+        }
+        
+        .newsletter-submit {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: var(--dark-space);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+        
+        .newsletter-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle 15s infinite linear;
+        }
+        
+        /* === Footer === */
+        .cyber-footer {
+            background: linear-gradient(180deg, rgba(10, 10, 30, 0.8) 0%, #050510 100%);
+            padding: 3rem 5vw;
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--neon-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--starlight);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .footer-links a:hover {
+            color: var(--neon-blue);
+            padding-left: 10px;
+        }
+        
+        .footer-links a::before {
+            content: '>';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--neon-blue);
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: -10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 247, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--neon-blue);
+            color: var(--dark-space);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .payment-method {
+            width: 40px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+        
+        /* === Animations === */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* === Responsive Design === */
+        @media (max-width: 992px) {
+            .hero-image {
+                opacity: 0.3;
+                right: -100px;
+            }
+            
+            .cyber-hero {
+                height: auto;
+                padding: 120px 5vw 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cyber-nav {
+                padding: 1rem 5vw;
+            }
+            
+            .holographic-logo {
+                font-size: 1.5rem;
+            }
+            
+            .cyber-links {
+                display: none;
+            }
+            
+            .typewriter-text {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .primary-btn, .secondary-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+            50% { box-shadow: 0 0 30px rgba(255,0,0,0.8); }
+            100% { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add this banner at the top of your page -->
+<div class="disclaimer-banner" style="
+    background: linear-gradient(90deg, #ff0000, #ff6a00);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
+    animation: pulse 2s infinite;
+">
+    ⚠️ FICTIONAL DEMO SITE - NOT A REAL STORE ⚠️<br>This is for showing my skills.
+</div>
+    <!-- Cyberpunk Navigation -->
+    <nav class="cyber-nav">
+        <div class="holographic-logo">NEOVERSE</div>
+        <div class="cyber-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="products.html">Products</a>
+            <a href="deals.html">Deals</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            Cart <span class="cart-count">0</span>
+        </button>
+    </nav>
+    
+    <!-- Hero Section with Typewriter -->
+    <section class="cyber-hero">
+        <div class="hero-content">
+            <div class="typewriter-container">
+                <div class="typewriter-text" id="typewriter"></div>
+            </div>
+            <p class="hero-description">Step into the future with our cutting-edge technology collection. Where innovation meets style, and performance meets aesthetics.</p>
+            <div class="cta-buttons">
+                <button class="primary-btn">Explore Products</button>
+                <button class="secondary-btn">View Deals</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <div class="section-header">
+            <h2 class="section-title">Featured Tech</h2>
+            <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="headset.webp" alt="Gaming Headset" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">AUDIO</span>
+                    <h3 class="product-name">Quantum X Headset</h3>
+                    <p class="product-description">Immerse yourself in 3D spatial audio with our latest neural interface technology.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$249.99</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="keyboard.webp" alt="Mechanical Keyboard" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">PERIPHERALS</span>
+                    <h3 class="product-name">Neon Glow Keyboard</h3>
+                    <p class="product-description">Customizable RGB mechanical keyboard with holographic keycaps.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$179.99</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="mouse.webp" alt="Gaming Mouse" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">PERIPHERALS</span>
+                    <h3 class="product-name">Holo Projection Mouse</h3>
+                    <p class="product-description">The world's first laser-projected mouse with zero physical contact.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$129.99</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="cyber-card">
+                <div class="product-image-container">
+                    <div class="product-bg"></div>
+                    <img src="smartwatch.webp" alt="Smart Watch" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">WEARABLES</span>
+                    <h3 class="product-name">Neuralink Smart Watch</h3>
+                    <p class="product-description">Monitor your vitals, control devices with your mind, and more.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$349.99</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Recommendations -->
+    <section class="ai-section">
+        <div class="ai-header">
+            <div class="ai-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div>
+                <h2 class="ai-title">AI Recommendations</h2>
+                <p class="ai-subtitle">Our neural network suggests these products based on your browsing patterns</p>
+            </div>
+        </div>
+        <div class="ai-recommendations">
+            <!-- AI Rec 1 -->
+            <div class="ai-card">
+                <h3 class="ai-product-name">VR Neural Interface</h3>
+                <p class="ai-reason">Based on your interest in immersive audio experiences</p>
+                <div class="ai-match">
+                    <span>87% Match</span>
+                    <div class="match-bar">
+                        <div class="match-progress" style="width: 87%;"></div>
+                    </div>
+                </div>
+                <div class="ai-price">$299.99</div>
+            </div>
+            
+            <!-- AI Rec 2 -->
+            <div class="ai-card">
+                <h3 class="ai-product-name">Haptic Feedback Gloves</h3>
+                <p class="ai-reason">Complementary to your VR preferences</p>
+                <div class="ai-match">
+                    <span>78% Match</span>
+                    <div class="match-bar">
+                        <div class="match-progress" style="width: 78%;"></div>
+                    </div>
+                </div>
+                <div class="ai-price">$199.99</div>
+            </div>
+            
+            <!-- AI Rec 3 -->
+            <div class="ai-card">
+                <h3 class="ai-product-name">3D Hologram Projector</h3>
+                <p class="ai-reason">For users who appreciate futuristic display tech</p>
+                <div class="ai-match">
+                    <span>92% Match</span>
+                    <div class="match-bar">
+                        <div class="match-progress" style="width: 92%;"></div>
+                    </div>
+                </div>
+                <div class="ai-price">$499.99</div>
+            </div>
+            
+            <!-- AI Rec 4 -->
+            <div class="ai-card">
+                <h3 class="ai-product-name">Neural Enhancer</h3>
+                <p class="ai-reason">Boosts cognitive performance by 37%</p>
+                <div class="ai-match">
+                    <span>85% Match</span>
+                    <div class="match-bar">
+                        <div class="match-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="ai-price">$399.99</div>
+            </div>
+            
+            <!-- AI Rec 5 -->
+            <div class="ai-card">
+                <h3 class="ai-product-name">Quantum SSD 10TB</h3>
+                <p class="ai-reason">For tech enthusiasts who need extreme storage</p>
+                <div class="ai-match">
+                    <span>81% Match</span>
+                    <div class="match-bar">
+                        <div class="match-progress" style="width: 81%;"></div>
+                    </div>
+                </div>
+                <div class="ai-price">$599.99</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="newsletter-particles" id="particles"></div>
+        <div class="newsletter-container">
+            <h2 class="newsletter-title">Join Our Cyber Club</h2>
+            <p class="newsletter-description">Subscribe to get exclusive deals, early access to new products, and tech insights from the future.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>NEOVERSE</h3>
+                <p>Bringing tomorrow's technology to today's innovators.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Investors</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 NEOVERSE Technologies. All rights reserved.</p>
+            <div class="payment-methods">
+                <div class="payment-method">BTC</div>
+                <div class="payment-method">ETH</div>
+                <div class="payment-method">USD</div>
+                <div class="payment-method">VISA</div>
+                <div class="payment-method">MC</div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Advanced Typewriter Effect
+        const typewriterElement = document.getElementById('typewriter');
+        const phrases = [
+            "Welcome to the Future",
+            "Next-Gen Technology",
+            "Cyberpunk Aesthetics",
+            "Innovation Unleashed"
+        ];
+        let currentPhrase = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+        let isEnd = false;
+        
+        function typeWriter() {
+            const speed = isDeleting ? 30 : 100;
+            const wait = 2000;
+            
+            if (isDeleting) {
+                typewriterElement.textContent = phrases[currentPhrase].substring(0, currentChar - 1);
+                currentChar--;
+            } else {
+                typewriterElement.textContent = phrases[currentPhrase].substring(0, currentChar + 1);
+                currentChar++;
+            }
+            
+            if (!isDeleting && currentChar === phrases[currentPhrase].length) {
+                isEnd = true;
+                isDeleting = true;
+                setTimeout(typeWriter, wait);
+            } else if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+                setTimeout(typeWriter, speed);
+            } else {
+                setTimeout(typeWriter, speed);
+            }
+        }
+        
+        // Start the typewriter effect
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 1px and 3px
+                const size = Math.random() * 2 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.bottom = `-10px`;
+                
+                // Random animation duration
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles
+        createParticles();
+        
+        // 3D tilt effect for product cards
+        document.querySelectorAll('.cyber-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.closest('.cyber-card');
+                const productName = product.querySelector('.product-name').textContent;
+                const productPrice = product.querySelector('.product-price').textContent;
+                
+                // Animation
+                this.innerHTML = '<i class="fas fa-check"></i> Added';
+                this.style.background = 'var(--matrix-green)';
+                this.style.color = 'var(--dark-space)';
+                this.style.borderColor = 'var(--matrix-green)';
+                
+                // Update cart count
+                const cartCount = document.querySelector('.cart-count');
+                let count = parseInt(cartCount.textContent);
+                cartCount.textContent = count + 1;
+                
+                // Reset button after animation
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-plus"></i> Add to Cart';
+                    this.style.background = 'transparent';
+                    this.style.color = 'var(--neon-blue)';
+                    this.style.borderColor = 'var(--neon-blue)';
+                }, 1500);
+                
+                // You would normally add to cart logic here
+                console.log(`Added ${productName} (${productPrice}) to cart`);
+            });
+        });
+    </script>
+<script>
+    // Blinking animation for disclaimer
+    document.addEventListener('DOMContentLoaded', function() {
+        const banner = document.querySelector('.disclaimer-banner');
+        setInterval(() => {
+            banner.style.opacity = banner.style.opacity === '0.7' ? '1' : '0.7';
+        }, 1000);
+    });
+</script>
+</body>
+</html>
